@@ -84,10 +84,9 @@
 		<script src="../js/svmfilter_webgl.js"></script>
 		<script src="../js/svmfilter_fft.js"></script>
 		<script src="../js/mossefilter.js"></script>
-		<script src="./ext_js/Stats.js"></script>
-			<video id="videoel" width="1920" height="1080" preload="auto" loop>
+			<video id="videoel" width="400" height="300" preload="auto" loop>
 			</video>
-			<canvas id="overlay" width="1920" height="1080"></canvas>
+			<canvas id="overlay" width="400" height="300"></canvas>
 			<div id="container">
 			</div>
 			<br/>
@@ -99,12 +98,7 @@
 				
 				var ctrack = new clm.tracker({useWebGL : true});
 				ctrack.init(pModel);
-				
-				stats = new Stats();
-				stats.domElement.style.position = 'absolute';
-				stats.domElement.style.top = '0px';
-				document.getElementById('container').appendChild( stats.domElement );
-				
+								
 				function enablestart() {
 					var startbutton = document.getElementById('startbutton');
 					startbutton.value = "start";
@@ -172,7 +166,7 @@
 				
 				function drawLoop() {
 					requestAnimFrame(drawLoop);
-					overlayCC.clearRect(0, 0, 1920, 1080);
+					overlayCC.clearRect(0, 0, 400, 300);
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
 					if (ctrack.getCurrentPosition()) {
 						ctrack.draw(overlay);
